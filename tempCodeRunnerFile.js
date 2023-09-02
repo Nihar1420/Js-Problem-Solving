@@ -1,1 +1,0 @@
-target[index[i]] = nums[i];
