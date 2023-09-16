@@ -22,7 +22,7 @@ function reccursion(num) {
   if (num === 0) {
     return 1;
   }
-    return num * reccursion(num - 1);
+  return num * reccursion(num - 1);
 }
 
 console.log(reccursion(5));
