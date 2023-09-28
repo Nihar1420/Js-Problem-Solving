@@ -5,19 +5,21 @@
 // Return the number of matches played in the tournament until a winner is decided.
 
 var numberOfMatches = function (n) {
-  let k, matches = 0;
-  for (let i = 0; i < n; i++) {
-    if (n % 2 === 0) {
-      k = n / 2;
-      matches = matches + n / 2;
-      console.log(matches,"matches");
+  let teamAdvance = n,
+    totalMatches = 0,
+    matches;
+  do {
+    if (teamAdvance % 2 === 0) {
+      matches = teamAdvance / 2;
+      teamAdvance = teamAdvance - matches;
+      totalMatches = totalMatches + matches;
     } else {
-      k = (n - 1) / 2;
-      matches = matches + (n-1) / 2;
-      console.log(matches,"matches");
+      matches = (teamAdvance - 1) / 2;
+      teamAdvance = teamAdvance - matches;
+      totalMatches = totalMatches + matches;
     }
-  }
-  return matches;
+  } while (teamAdvance !== 1);
+  return totalMatches;
 };
 
 console.log(numberOfMatches(7));
